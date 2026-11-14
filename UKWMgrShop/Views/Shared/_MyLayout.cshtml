@@ -1,0 +1,160 @@
+﻿@model IEnumerable<Category>
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyShop – Sklep internetowy</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .category-nav {
+            background-color: #fff;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .category-nav .nav-link {
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .category-nav .nav-link:hover,
+        .category-nav .nav-link.active {
+            color: #0d6efd;
+        }
+
+        .product-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #198754;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nagłówek -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">MyShop</a>
+
+            <div class="text-white">
+                🛒 Koszyk (<span id="cart-count">0</span>)
+            </div>
+        </div>
+    </nav>
+
+    <!-- Kategorie produktów -->
+    <nav class="category-nav">
+        <div class="container">
+            <ul class="nav justify-content-center py-2">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-category="all">
+                        Wszystkie
+                    </a>
+                </li>
+                
+                @foreach (var category in Model)
+                {
+                <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("FilmsList", "Films", new { categoryName = @category.Name })" data-category="electronics">
+                        @category.Name
+                    </a>
+                </li>
+                }
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Lista produktów -->
+    <main class="container py-5">
+        @RenderBody()
+       
+    </main>
+
+    <!-- Stopka -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2026 MyShop – Wszystkie prawa zastrzeżone</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Filtrowanie produktów według kategorii
+        const categoryLinks = document.querySelectorAll(
+            '.category-nav .nav-link'
+        );
+
+        const products = document.querySelectorAll('.product');
+
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                const category = this.dataset.category;
+
+                // Zmiana aktywnej kategorii
+                categoryLinks.forEach(item =>
+                    item.classList.remove('active')
+                );
+
+                this.classList.add('active');
+
+                // Filtrowanie kart
+                products.forEach(product => {
+                    if (category === 'all' ||
+                        product.dataset.category === category) {
+                        product.style.display = '';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Prosty licznik koszyka
+        let cartCount = 0;
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                cartCount++;
+
+                document.getElementById('cart-count').textContent =
+                    cartCount;
+            });
+        });
+    </script>
+
+</body>
+</html>

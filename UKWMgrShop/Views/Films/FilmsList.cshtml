@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Film>
+
+@{
+    Layout = null;
+}
+
+
+<h2 class="mb-4">Nasze produkty</h2>
+<div class="row g-4" id="products">
+
+@foreach(var film in Model)
+{
+        <!-- Produkt 1 -->
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 product"
+             data-category="@film.Category.Name">
+            <div class="card product-card">
+                <img src="https://picsum.photos/400/300?random=1"
+                     class="card-img-top" alt="@film.Title">
+                <div class="card-body">
+                    <h5 class="card-title">@film.Title</h5>
+                    <p class="card-text text-muted">
+                        @film.Desc
+                    </p>
+                    <p class="product-price">@film.Price zł</p>
+                    <button class="btn btn-primary w-100 add-to-cart">
+                        Dodaj do koszyka
+                    </button>
+                </div>
+            </div>
+        </div>
+}
+</div>

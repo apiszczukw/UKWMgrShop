@@ -29,7 +29,7 @@ namespace UKWMgrShop.Models
         public int CategoryId { get; set; }
 
         // nazwa klasy dołączanej + Id
-        
+        public Category Category { get; set; }
 
     }
 }

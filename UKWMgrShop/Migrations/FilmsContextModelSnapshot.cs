@@ -41,6 +41,44 @@ namespace UKWMgrShop.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Filmy grozy",
+                            Name = "Horror"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Desc = "Filmy komediowe pełne humoru i zabawnych sytuacji",
+                            Name = "Komedia"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Desc = "Filmy pełne dynamicznych scen, walk i pościgów",
+                            Name = "Akcja"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Desc = "Filmy o przyszłości, kosmosie i zaawansowanej technologii",
+                            Name = "Science Fiction"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Desc = "Filmy poruszające trudne tematy i ludzkie emocje",
+                            Name = "Dramat"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Desc = "Filmy pełne napięcia, tajemnic i nieoczekiwanych zwrotów akcji",
+                            Name = "Thriller"
+                        });
                 });
 
             modelBuilder.Entity("UKWMgrShop.Models.Film", b =>
@@ -75,7 +113,327 @@ namespace UKWMgrShop.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Films");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            DateAdded = new DateTime(2013, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Małżeństwo demonologów bada nawiedzony dom, w którym dochodzi do przerażających wydarzeń.",
+                            Director = "James Wan",
+                            Price = 19.99m,
+                            Title = "Obecność"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 1,
+                            DateAdded = new DateTime(1980, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Pisarz podejmuje pracę w odizolowanym hotelu, gdzie zaczyna doświadczać przerażających zjawisk.",
+                            Director = "Stanley Kubrick",
+                            Price = 14.99m,
+                            Title = "Lśnienie"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 1,
+                            DateAdded = new DateTime(2017, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Grupa dzieci musi zmierzyć się z tajemniczym klaunem terroryzującym ich miasteczko.",
+                            Director = "Andy Muschietti",
+                            Price = 17.99m,
+                            Title = "To"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 1,
+                            DateAdded = new DateTime(2004, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Dwóch mężczyzn zostaje uwięzionych i zmuszonych do udziału w makabrycznej grze.",
+                            Director = "James Wan",
+                            Price = 12.99m,
+                            Title = "Piła"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 1,
+                            DateAdded = new DateTime(1973, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Dziewczynka zostaje opętana przez demoniczną siłę, a jej rodzina szuka pomocy.",
+                            Director = "William Friedkin",
+                            Price = 13.99m,
+                            Title = "Egzorcysta"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 2,
+                            DateAdded = new DateTime(1994, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Nieśmiały pracownik banku znajduje magiczną maskę, która zmienia jego osobowość.",
+                            Director = "Chuck Russell",
+                            Price = 14.99m,
+                            Title = "Maska"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryId = 2,
+                            DateAdded = new DateTime(1990, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Ośmioletni Kevin zostaje sam w domu i musi bronić go przed włamywaczami.",
+                            Director = "Chris Columbus",
+                            Price = 12.99m,
+                            Title = "Kevin sam w domu"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 2,
+                            DateAdded = new DateTime(2003, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Niezadowolony prezenter telewizyjny otrzymuje boskie moce i próbuje zmienić świat.",
+                            Director = "Tom Shadyac",
+                            Price = 16.99m,
+                            Title = "Bruce Wszechmogący"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 2,
+                            DateAdded = new DateTime(2009, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Trzech przyjaciół próbuje odtworzyć wydarzenia szalonej nocy w Las Vegas.",
+                            Director = "Todd Phillips",
+                            Price = 18.99m,
+                            Title = "Kac Vegas"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoryId = 2,
+                            DateAdded = new DateTime(2000, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Młody skrzypek zostaje przypadkowo wciągnięty w świat gangsterów i niebezpiecznych sytuacji.",
+                            Director = "Olaf Lubaszenko",
+                            Price = 14.99m,
+                            Title = "Chłopaki nie płaczą"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CategoryId = 3,
+                            DateAdded = new DateTime(2014, 10, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Były płatny zabójca powraca do świata przestępczego, aby zemścić się na swoich wrogach.",
+                            Director = "Chad Stahelski",
+                            Price = 19.99m,
+                            Title = "John Wick"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoryId = 3,
+                            DateAdded = new DateTime(2000, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Rzymski generał zostaje zdradzony i zmuszony do walki na arenie jako gladiator.",
+                            Director = "Ridley Scott",
+                            Price = 16.99m,
+                            Title = "Gladiator"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CategoryId = 3,
+                            DateAdded = new DateTime(1988, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Policjant samotnie stawia czoła grupie terrorystów, którzy opanowali wieżowiec.",
+                            Director = "John McTiernan",
+                            Price = 14.99m,
+                            Title = "Szklana pułapka"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CategoryId = 3,
+                            DateAdded = new DateTime(2015, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "W postapokaliptycznym świecie bohaterowie walczą o przetrwanie podczas szalonego pościgu.",
+                            Director = "George Miller",
+                            Price = 19.99m,
+                            Title = "Mad Max: Na drodze gniewu"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CategoryId = 3,
+                            DateAdded = new DateTime(2022, 5, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Legendarny pilot powraca do szkoły lotniczej, aby szkolić nowe pokolenie pilotów.",
+                            Director = "Joseph Kosinski",
+                            Price = 19.99m,
+                            Title = "Top Gun: Maverick"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CategoryId = 4,
+                            DateAdded = new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Grupa astronautów wyrusza w podróż przez tunel czasoprzestrzenny w poszukiwaniu nowego domu dla ludzkości.",
+                            Director = "Christopher Nolan",
+                            Price = 19.99m,
+                            Title = "Interstellar"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CategoryId = 4,
+                            DateAdded = new DateTime(1999, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Haker odkrywa, że rzeczywistość, którą zna, jest jedynie komputerową symulacją.",
+                            Director = "Lana Wachowski, Lilly Wachowski",
+                            Price = 17.99m,
+                            Title = "Matrix"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CategoryId = 4,
+                            DateAdded = new DateTime(2010, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Zespół specjalistów potrafi wkradać się do ludzkich snów i manipulować podświadomością.",
+                            Director = "Christopher Nolan",
+                            Price = 18.99m,
+                            Title = "Incepcja"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CategoryId = 4,
+                            DateAdded = new DateTime(2009, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Były żołnierz trafia na planetę Pandora i poznaje niezwykłą kulturę jej mieszkańców.",
+                            Director = "James Cameron",
+                            Price = 18.99m,
+                            Title = "Avatar"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CategoryId = 4,
+                            DateAdded = new DateTime(2021, 9, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Młody książę trafia na pustynną planetę, która skrywa najcenniejszy surowiec we wszechświecie.",
+                            Director = "Denis Villeneuve",
+                            Price = 19.99m,
+                            Title = "Diuna"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CategoryId = 5,
+                            DateAdded = new DateTime(1994, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Niesłusznie skazany bankier próbuje odnaleźć nadzieję i wolność w więzieniu.",
+                            Director = "Frank Darabont",
+                            Price = 17.99m,
+                            Title = "Skazani na Shawshank"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CategoryId = 5,
+                            DateAdded = new DateTime(1999, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Strażnik więzienny poznaje niezwykłego więźnia obdarzonego tajemniczymi zdolnościami.",
+                            Director = "Frank Darabont",
+                            Price = 18.99m,
+                            Title = "Zielona mila"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CategoryId = 5,
+                            DateAdded = new DateTime(1994, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Mężczyzna o niezwykłym spojrzeniu na świat staje się świadkiem ważnych wydarzeń historii USA.",
+                            Director = "Robert Zemeckis",
+                            Price = 16.99m,
+                            Title = "Forrest Gump"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CategoryId = 5,
+                            DateAdded = new DateTime(2002, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Poruszająca historia żydowskiego pianisty próbującego przetrwać okupację Warszawy.",
+                            Director = "Roman Polański",
+                            Price = 17.99m,
+                            Title = "Pianista"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CategoryId = 5,
+                            DateAdded = new DateTime(2014, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Młody perkusista marzy o wielkiej karierze i trafia pod opiekę bezwzględnego nauczyciela.",
+                            Director = "Damien Chazelle",
+                            Price = 18.99m,
+                            Title = "Whiplash"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CategoryId = 6,
+                            DateAdded = new DateTime(1995, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Dwóch detektywów prowadzi śledztwo w sprawie seryjnego mordercy inspirującego się siedmioma grzechami głównymi.",
+                            Director = "David Fincher",
+                            Price = 17.99m,
+                            Title = "Siedem"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CategoryId = 6,
+                            DateAdded = new DateTime(2010, 2, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Dwóch agentów federalnych bada tajemnicze zniknięcie pacjentki ze szpitala psychiatrycznego.",
+                            Director = "Martin Scorsese",
+                            Price = 18.99m,
+                            Title = "Wyspa tajemnic"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CategoryId = 6,
+                            DateAdded = new DateTime(2014, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Po zaginięciu żony mężczyzna staje się głównym podejrzanym w sprawie jej zniknięcia.",
+                            Director = "David Fincher",
+                            Price = 19.99m,
+                            Title = "Zaginiona dziewczyna"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CategoryId = 6,
+                            DateAdded = new DateTime(1991, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Agentka FBI szuka pomocy u niebezpiecznego psychiatry, aby schwytać seryjnego mordercę.",
+                            Director = "Jonathan Demme",
+                            Price = 17.99m,
+                            Title = "Milczenie owiec"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CategoryId = 6,
+                            DateAdded = new DateTime(2013, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Desc = "Ojciec z pomocą detektywa desperacko poszukuje swojej zaginionej córki.",
+                            Director = "Denis Villeneuve",
+                            Price = 18.99m,
+                            Title = "Labirynt"
+                        });
+                });
+
+            modelBuilder.Entity("UKWMgrShop.Models.Film", b =>
+                {
+                    b.HasOne("UKWMgrShop.Models.Category", "Category")
+                        .WithMany("Films")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("UKWMgrShop.Models.Category", b =>
+                {
+                    b.Navigation("Films");
                 });
 #pragma warning restore 612, 618
         }

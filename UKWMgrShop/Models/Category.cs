@@ -8,5 +8,7 @@
 
         public string Desc { get; set; }
 
+        public IEnumerable<Film> Films { get; set; }
+
     }
 }
